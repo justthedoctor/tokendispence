@@ -9,7 +9,9 @@ module.exports = (panda) => {
   });
   
   router.get('/:address', function(req, res, next) {
-    res.render('index', { title: 'Token Dispencer', address: req.params.address })
+    panda.findTransaction(req.params.address)
+      .then(trans => res.render('index', { title: 'Token Dispencer', address: req.params.address, trans }))
+      .catch(err => res.render('index', { title: 'Token Dispencer', address: req.params.address, error: err.message }))
   });
   
   return router
