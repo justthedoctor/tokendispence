@@ -1,7 +1,8 @@
 var pandacoin = require('node-pandacoin')()
 
-pandacoin.set({ port: 10000 })
-pandacoin.auth('pandacoinrpc', '38ZjqLZzb2PQujUmQMCir42Ah4c6KUj6MwBWeqT3ffq7')
+pandacoin.set('host', '')
+pandacoin.set({ port:  })
+pandacoin.auth('', '')
 
 const panda = exports
 
