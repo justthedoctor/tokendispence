@@ -18,9 +18,13 @@ panda.getNewAddress = () => {
 
 panda.findTransaction = (address) => {
   return new Promise((resolve, reject) => {
-    pandacoin.listtransactions('tokend', (err, trans) => {
+    pandacoin.listtransactions('tokend', 9999999, (err, trans) => {
+		console.log(trans)
       if (err) return reject(err)
       const found = trans.filter(tran => tran.address === address)
+	console.log('This is Address')
+	console.log(address)
+	console.log('This is found')
   console.log(found)
       if (!found) return reject(new Error("No transaction found"))
       const passed = found.filter(trans => (Number(trans.amount) >= 1000.00000000))
